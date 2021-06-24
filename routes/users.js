@@ -11,15 +11,18 @@ const User = require('../models/User');
 // @access   Public
 router.post(
   '/',
-  // name must not be empty
-  check('name', 'Please add name').notEmpty(),
-  // email must be valid
-  check('email', 'Please include valid email').isEmail(),
-  // password must be at least 6 characters
-  check(
-    'password',
-    'Please enter a password with 6 or more characters'
-  ).isLength({ min: 6 }),
+  // Express-validator
+  [
+    // name must not be empty
+    check('name', 'Please add name').notEmpty(),
+    // email must be valid
+    check('email', 'Please include valid email').isEmail(),
+    // password must be at least 6 characters
+    check(
+      'password',
+      'Please enter a password with 6 or more characters'
+    ).isLength({ min: 6 }),
+  ],
   async (req, res) => {
     // Finds the validation errors in this request and wraps them in an object with handy functions
     const errors = validationResult(req);
