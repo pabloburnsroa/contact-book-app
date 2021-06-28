@@ -35,8 +35,8 @@ const ContactForm = () => {
   };
   // onSubmit function adds/edits contact
   const onSubmit = (e) => {
+    e.preventDefault();
     if (current === null) {
-      e.preventDefault();
       addContact(contact);
     } else {
       updateContact(contact);

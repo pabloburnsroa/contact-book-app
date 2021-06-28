@@ -14,10 +14,6 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
-app.get('/', (req, res) => {
-  res.json({ msg: 'Welcome to Contact Book App API' });
-});
-
 // Define routes in routes folder
 app.use('/api/users', users);
 app.use('/api/auth', auth);
